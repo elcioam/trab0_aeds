@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <cstdlib> // Para a função exit
+#include <cstdlib> 
 
 using namespace std;
 

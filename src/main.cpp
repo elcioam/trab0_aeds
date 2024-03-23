@@ -50,6 +50,34 @@ int contar_vizinhos_iguais_a_1(const vector<vector<int>>& matriz, int linha, int
     return contagem;
 }
 
+vector<vector<int>> proxima_geracao(const vector<vector<int>>& matriz){
+    int linhas = matriz.size();
+    int colunas = matriz[0].size();
+    //Iniciei as matriz com o número 0, por que como não havia nenhum elemento preenchido, ele dava segmentation fault.
+    vector<vector<int>> proxima_matriz(linhas, vector<int>(colunas, 0));
+    for (int linha = 0; linha < matriz.size(); linha++) {
+        for (int coluna = 0; coluna < matriz.size(); coluna++) {
+            //Uma célula viva com menos de dois vizinhos vivos morre (solidão)
+            if (contar_vizinhos_iguais_a_1(matriz, linha, coluna) < 2 && matriz[linha][coluna] == 1) {
+                proxima_matriz[linha][coluna] = 0;
+            }
+            // Uma célula viva com mais de três vizinhos vivos morre (superpopulação).
+            else if (contar_vizinhos_iguais_a_1(matriz, linha, coluna) > 3 && matriz[linha][coluna] == 1) {
+                proxima_matriz[linha][coluna] = 0;
+            }
+            // Uma célula viva com dois ou três vizinhos vivos sobrevive.
+            else if ((contar_vizinhos_iguais_a_1(matriz, linha, coluna) == 2 || contar_vizinhos_iguais_a_1(matriz, linha, coluna) == 3) && matriz[linha][coluna] == 1) {
+                proxima_matriz[linha][coluna] = 1;
+            }
+            // Uma célula morta com exatamente três vizinhos vivos se torna viva (reprodução)
+            else if (contar_vizinhos_iguais_a_1(matriz, linha, coluna) == 3 && matriz[linha][coluna] == 0) {
+                proxima_matriz[linha][coluna] = 1;
+            }
+        }
+    }
+    return proxima_matriz;
+    }
+
 
 ifstream abrir_arquivo() {
     ifstream arq_input;
@@ -84,17 +112,37 @@ void imprimir_matriz(const vector<vector<int>>& matriz) {
     }
 }
 
+void menu(){
+    int geracoes=5;
+    ifstream arquivo = abrir_arquivo();
+    vector<vector<int>> matriz = ler_arquivo(arquivo);
+    int i=0;
+    do
+    {
+        cout << "---------------------------\n";
+        cout << "Geração " << i ;
+        cout << endl;
+        imprimir_matriz(matriz);
+        matriz = proxima_geracao(matriz);
+        i++;
+    } while (i != geracoes);
+}
 
 int main() {
-ifstream arquivo = abrir_arquivo();
-    vector<vector<int>> matriz = ler_arquivo(arquivo);
+    menu();
+    // ifstream arquivo = abrir_arquivo();
+    // vector<vector<int>> matriz = ler_arquivo(arquivo);
 
-    imprimir_matriz(matriz);
-    arquivo.close();
+    // imprimir_matriz(matriz);
+    // cout << endl;
+    // imprimir_matriz(proxima_geracao(matriz));
+    // cout << endl;
+    // imprimir_matriz(proxima_geracao(proxima_geracao(matriz)));
+    
+    // arquivo.close();
 
     
 
-    cout << endl;
 
 
     return 0;

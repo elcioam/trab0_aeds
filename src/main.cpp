@@ -5,6 +5,52 @@
 
 using namespace std;
 
+bool posicao_valida(int i, int j, int linhas, int colunas) {
+    return i >= 0 && i < linhas && j >= 0 && j < colunas;
+}
+
+int contar_vizinhos_iguais_a_1(const vector<vector<int>>& matriz, int linha, int coluna) {
+    int linhas = matriz.size();
+    int colunas = matriz[0].size();
+
+    int contagem = 0;
+    // Verificar vizinho acima
+    if (posicao_valida(linha - 1, coluna, linhas, colunas) && matriz[linha - 1][coluna] == 1) {
+        contagem++;
+    }
+    // Verificar vizinho abaixo
+    if (posicao_valida(linha + 1, coluna, linhas, colunas) && matriz[linha + 1][coluna] == 1) {
+        contagem++;
+    }
+    // Verificar vizinho à esquerda
+    if (posicao_valida(linha, coluna - 1, linhas, colunas) && matriz[linha][coluna - 1] == 1) {
+        contagem++;
+    }
+    // Verificar vizinho à direita
+    if (posicao_valida(linha, coluna + 1, linhas, colunas) && matriz[linha][coluna + 1] == 1) {
+        contagem++;
+    }
+    // Verificar vizinho superior esquerdo
+    if (posicao_valida(linha - 1, coluna - 1, linhas, colunas) && matriz[linha - 1][coluna - 1] == 1) {
+        contagem++;
+    }
+    // Verificar vizinho superior direito
+    if (posicao_valida(linha - 1, coluna + 1, linhas, colunas) && matriz[linha - 1][coluna + 1] == 1) {
+        contagem++;
+    }
+    // Verificar vizinho inferior esquerdo
+    if (posicao_valida(linha + 1, coluna - 1, linhas, colunas) && matriz[linha + 1][coluna - 1] == 1) {
+        contagem++;
+    }
+    // Verificar vizinho inferior direito
+    if (posicao_valida(linha + 1, coluna + 1, linhas, colunas) && matriz[linha + 1][coluna + 1] == 1) {
+        contagem++;
+    }
+
+    return contagem;
+}
+
+
 ifstream abrir_arquivo() {
     ifstream arq_input;
     arq_input.open("input.mps");
@@ -14,6 +60,7 @@ ifstream abrir_arquivo() {
     }
     return arq_input;
 }
+
 
 vector<vector<int>> ler_arquivo(ifstream& arq_input) {
     int tamanho;
@@ -37,11 +84,18 @@ void imprimir_matriz(const vector<vector<int>>& matriz) {
     }
 }
 
+
 int main() {
-    ifstream arquivo = abrir_arquivo();
+ifstream arquivo = abrir_arquivo();
     vector<vector<int>> matriz = ler_arquivo(arquivo);
-    
+
     imprimir_matriz(matriz);
     arquivo.close();
+
+    
+
+    cout << endl;
+
+
     return 0;
 }

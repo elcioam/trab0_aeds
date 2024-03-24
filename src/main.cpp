@@ -78,6 +78,13 @@ vector<vector<int>> proxima_geracao(const vector<vector<int>>& matriz){
     return proxima_matriz;
     }
 
+int verificar_matriz(const vector<vector<int>>& matriz1, const vector<vector<int>>& matriz2){
+    if (matriz1 == matriz2){
+        return 1;
+    }
+    else 
+    return 0;
+}
 
 ifstream abrir_arquivo() {
     ifstream arq_input;
@@ -91,8 +98,12 @@ ifstream abrir_arquivo() {
 
 
 vector<vector<int>> ler_arquivo(ifstream& arq_input) {
-    int tamanho;
+    int tamanho=0;
     arq_input >> tamanho;
+     if (tamanho<5){
+        cout << "A matriz não é maior ou igual a 5x5.\n";
+        exit(1);
+    }
 
     vector<vector<int>> matriz_inicial(tamanho, vector<int>(tamanho));
     for (int i = 0; i < tamanho; i++) {
@@ -103,47 +114,52 @@ vector<vector<int>> ler_arquivo(ifstream& arq_input) {
     return matriz_inicial;
 }
 
-void imprimir_matriz(const vector<vector<int>>& matriz) {
+void imprimir_matriz(const vector<vector<int>>& matriz, ofstream& arquivo_saida) {
     for (const auto& linha : matriz) {
         for (int elemento : linha) {
-            cout << elemento << " ";
+            arquivo_saida << elemento << " ";
         }
-        cout << endl;
+        arquivo_saida << endl;
     }
 }
 
 void menu(){
-    int geracoes=5;
-    ifstream arquivo = abrir_arquivo();
-    vector<vector<int>> matriz = ler_arquivo(arquivo);
+    int geracoes=100;
+    ifstream arquivo_entrada = abrir_arquivo();
+
+    ofstream arquivo_saida;
+    arquivo_saida.open("geracoes.mps");
+    if (!arquivo_saida.is_open()) {
+        cout << "Ocorreu um erro ao abrir o arquivo.\n";
+        exit(1);
+    }
+    
+    vector<vector<int>> matriz = ler_arquivo(arquivo_entrada);
     int i=0;
+
     do
     {
-        cout << "---------------------------\n";
-        cout << "Geração " << i ;
-        cout << endl;
-        imprimir_matriz(matriz);
+        arquivo_saida << "---------------------------\n";
+        arquivo_saida << "Geração " << i << "\n\n";
+        imprimir_matriz(matriz, arquivo_saida);
         matriz = proxima_geracao(matriz);
+        if (verificar_matriz(matriz, proxima_geracao(matriz)) == 1){
+            arquivo_saida << "---------------------------\n";
+            arquivo_saida << "Geração " << i +1 << "\n\n";
+            imprimir_matriz(matriz, arquivo_saida);
+            i = geracoes;
+            arquivo_saida << "\n**A matriz não evolui mais.**";
+            i--; //Pra compensar o ++ que tem abaixo.
+        }
         i++;
+        
     } while (i != geracoes);
+    arquivo_saida.close();
+    cout << "Arquivo \"gerações.mps\" escrito com sucesso!\n";
 }
 
 int main() {
     menu();
-    // ifstream arquivo = abrir_arquivo();
-    // vector<vector<int>> matriz = ler_arquivo(arquivo);
-
-    // imprimir_matriz(matriz);
-    // cout << endl;
-    // imprimir_matriz(proxima_geracao(matriz));
-    // cout << endl;
-    // imprimir_matriz(proxima_geracao(proxima_geracao(matriz)));
-    
-    // arquivo.close();
-
-    
-
-
 
     return 0;
 }

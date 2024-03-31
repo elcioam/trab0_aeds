@@ -115,7 +115,7 @@ No geral, estou satisfeito com o resultado final e com o aprendizado obtido ao l
 Contato   | Plataforma
 --------- | ------
 ```@argondsgn / @elcioamorim_``` | [![Instagram](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/argondsgn)
-```elcio@aluno.cefetmg.br``` | [![Gmail](https://skillicons.dev/icons?i=gmail)](elcio@aluno.cefetmg.br)
+```elcio@aluno.cefetmg.br``` | [![Gmail](https://skillicons.dev/icons?i=gmail)](mailto:elcio@aluno.cefetmg.br)
 
 
 

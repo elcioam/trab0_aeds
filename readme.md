@@ -1,5 +1,5 @@
 
-![](https://github.com/elcioam/trab0_aeds/blob/main/git%20design/capa%20gif.gif?raw=true) 
+![](https://github.com/elcioam/trab0_aeds/blob/main/git%20design/capa.png?raw=true)
 
 >Por Élcio Amorim.
 
@@ -34,7 +34,7 @@ Logo abaixo está orientações importantes que deverão ser seguidas no código
 7. Utilizar uma fração de 2 para 1 para compor os valores 0s e 1s, com menos 1s para um melhor espalhamento.
 
 ## *Decisões de Implementação/Principais Problemas*
-![]()
+![](https://github.com/elcioam/trab0_aeds/blob/main/git%20design/problemas.png?raw=true)
 Foram exploradas diversas ideias para tornar a implementação ainda mais interessante e robusta. Embora tenha optado por não incluir algumas ideas, como o cercamento da matriz original (será falado), a ideia de implementar essas decisões foi considerada para melhorar a eficiência e a precisão do programa. E também será abordado o principal problema do código, que diz respeito à detecção de posições fora da matriz.
 
 ### *O "GRANDE" problema*
@@ -53,7 +53,7 @@ Ao rodear a matriz, você está adicionando células extras em todas as bordas, 
 Apesar de quase ser implementada a ideia acima, uma decisão melhor foi implementada. Foi criada uma função booleana chamada *posicao_valida* que é responsável por verificar se a posição que acessada está dentro dos limites da matriz, ela combinada com a função *contar_vizinhos_iguais_a_1* (será mostrada) fez com que tudo funcionasse de acordo com a proposta do trabalho. Ela recebe como entrada as coordenadas *(i, j)* de uma posição na matriz e os limites da matriz, ou seja, o número de linhas e colunas (que é o mesmo). Em seguida, verifica se i está dentro do intervalo *[0, linhas]* e se j está dentro do intervalo *[0, colunas]*. Se ambos forem verdadeiros, isso significa que a posição *(i, j)* está dentro dos limites válidos da matriz e retorna **true**. Caso contrário, retorna **false**, indicando que a posição está fora dos limites.
 
 A representação para ajudar no entendimento:
-![](github) Imagem
+![](https://github.com/elcioam/trab0_aeds/blob/main/git%20design/posicao%20valida.png?raw=true)
 
 ## *Funções do programa*
 
@@ -91,7 +91,8 @@ Parâmetros: matriz é a matriz a ser impressa; arquivo_saida é o objeto ofstre
 Funcionalidade: Imprime a matriz no arquivo de saída, separando os elementos por espaço e as linhas por quebra de linha.<br>
 
 **Função menu:**<br>
-Funcionalidade: Função principal que controla o fluxo do programa. Abre o arquivo de entrada, o arquivo de saída, lê a matriz do arquivo de entrada, calcula as próximas gerações do Jogo da Vida e imprime no arquivo de saída até que o número máximo de gerações seja atingido ou a matriz não evolua mais.<br>
+Parâmetros: geracoes é o número de gerações que serão geradas.<br>
+Funcionalidade: Função principal que controla o fluxo do programa. Abre o arquivo de entrada, o arquivo de saída, lê a matriz do arquivo de entrada, calcula as próximas gerações do Jogo da Vida e imprime no arquivo de saída até que o número de gerações seja atingido ou a matriz não evolua mais.<br>
 
 ## *Comandos do código* (Makefile)
 
@@ -108,11 +109,13 @@ Destaco também o tempo dedicado à criação de **imagens didáticas**, essenci
 
 No geral, estou satisfeito com o resultado final e com o aprendizado obtido ao longo do desenvolvimento deste projeto. Acredito que essa experiência tenha ajudou significativamente para o meu desenvolvimento como programador.
 
+![](https://github.com/elcioam/trab0_aeds/blob/main/git%20design/capa%20gif.gif?raw=true) 
+
 ## *Contato*
 
 Contato   | Plataforma
 --------- | ------
-```@argondsgn``` | [![Instagram](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/argondsgn)
+```@argondsgn / @elcioamorim_``` | [![Instagram](https://skillicons.dev/icons?i=instagram)](https://www.instagram.com/argondsgn)
 ```elcio@aluno.cefetmg.br``` | [![Gmail](https://skillicons.dev/icons?i=gmail)](elcio@aluno.cefetmg.br)
 
 

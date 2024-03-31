@@ -123,8 +123,7 @@ void imprimir_matriz(const vector<vector<int>>& matriz, ofstream& arquivo_saida)
     }
 }
 
-void menu(){
-    int geracoes=100;
+void menu(int geracoes){
     ifstream arquivo_entrada = abrir_arquivo();
 
     ofstream arquivo_saida;

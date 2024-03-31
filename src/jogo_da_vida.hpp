@@ -11,6 +11,6 @@ int verificar_matriz(const std::vector<std::vector<int>>& matriz1, const std::ve
 std::ifstream abrir_arquivo();
 std::vector<std::vector<int>> ler_arquivo(std::ifstream& arq_input);
 void imprimir_matriz(const std::vector<std::vector<int>>& matriz, std::ofstream& arquivo_saida);
-void menu();
+void menu(int geracoes);
 
 #endif // JOGO_DA_VIDA_HPP

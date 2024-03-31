@@ -1,3 +1,4 @@
+![](https://github.com/elcioam/trab0_aeds/blob/main/git%20design/capa%20gif.gif?raw=true) 
 
 ![](https://github.com/elcioam/trab0_aeds/blob/main/git%20design/capa.png?raw=true)
 
@@ -107,9 +108,7 @@ Durante a realização deste trabalho, pude revisitar e aplicar conceitos import
 
 Destaco também o tempo dedicado à criação de **imagens didáticas**, essenciais para o melhor entendimento do código e das regras do Jogo da Vida. Essas imagens não apenas facilitaram a compreensão do algoritmo, mas também contribuíram para uma apresentação mais visual e atrativa do trabalho.
 
-No geral, estou satisfeito com o resultado final e com o aprendizado obtido ao longo do desenvolvimento deste projeto. Acredito que essa experiência tenha ajudou significativamente para o meu desenvolvimento como programador.
-
-![](https://github.com/elcioam/trab0_aeds/blob/main/git%20design/capa%20gif.gif?raw=true) 
+No geral, estou satisfeito com o resultado final e com o aprendizado obtido ao longo do desenvolvimento deste projeto. Acredito que essa experiência tenha ajudado significativamente para o meu desenvolvimento como programador.
 
 ## *Contato*
 
